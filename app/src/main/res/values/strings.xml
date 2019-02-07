@@ -3,4 +3,5 @@
     <string name="author">Tiger Kong</string>
 
     <string name="cards">Cards</string>
+    <string name="search_box_hint">Search for a card</string>
 </resources>

@@ -6,8 +6,12 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.format.DateFormat;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -27,6 +31,12 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         long now = System.currentTimeMillis();
+
+        SimpleDateFormat df = new SimpleDateFormat("EEEE MMM dd, yyyy");
+        String formattedDate = df.format(now);
+
+        TextView clock = findViewById(R.id.date);
+        clock.setText(formattedDate);
 
         mHideHandler.postDelayed(() ->
         {

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/query_text"
         android:textColor="@color/white"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         tools:text="woot"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold"

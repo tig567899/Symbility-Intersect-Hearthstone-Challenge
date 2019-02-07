@@ -29,12 +29,13 @@
             android:textColor="@color/white"
             android:textAlignment="center"/>
 
-        <TextClock
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
             android:textAlignment="center"
+            android:id="@+id/date"
             tools:text="Now" />
     </LinearLayout>
 

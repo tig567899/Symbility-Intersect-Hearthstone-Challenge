@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -56,13 +58,12 @@ public class GridActivity extends AppCompatActivity implements ApiConnector.Resp
         cards = (ArrayList<Card>) ApiConnector.getData();
         searched_cards = new ArrayList<>();
         searched_cards.addAll(cards);
-        Toast.makeText(this, "Successful Connection " + cards.size(), Toast.LENGTH_SHORT).show();
         progressBar.setVisibility(View.GONE);
         queries = new ArrayList<>();
         searched = true;
 
         gridAdapter = new GridAdapter(searched_cards, queries, this, this);
-        gridAdapter.setHasStableIds(true);
+        gridAdapter.setHasStableIds(false);
         recyclerView.setAdapter(gridAdapter);
     }
 
@@ -91,8 +92,10 @@ public class GridActivity extends AppCompatActivity implements ApiConnector.Resp
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Search");
-        EditText edit = new EditText(this);
-        builder.setView(edit);
+        final FrameLayout frameView = new FrameLayout(this);
+        builder.setView(frameView);
+        View v = LayoutInflater.from(this).inflate(R.layout.searchbox_layout, frameView);
+        EditText edit = v.findViewById(R.id.search_box);
 
         builder.setPositiveButton("Search", (dialogInterface, i) -> {
             String query = edit.getText().toString();
